@@ -39,7 +39,7 @@ public class ShelfController {
 	
 	private PathController pathController=new PathController();
 	String absolutePath=pathController.getPath();
-	
+
 	/**
 	 * 新建货架商品
 	 * 

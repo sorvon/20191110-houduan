@@ -32,7 +32,7 @@ public class MenuServiceImpl implements MenuService {
 			List<String> tmpList = roleMenuDao.getMenuByRoleId(relationEntity.getRoleId());
 			idList.addAll(tmpList);
 		}
-		
+
 		String[] ids = idList.toArray(new String[idList.size()]);
 		List<MenuEntity> parentMenuList = menuDao.getParentMenuListById(ids);
 		List<MenuEntity> childrenMenuList = menuDao.getMenuListById(ids);
