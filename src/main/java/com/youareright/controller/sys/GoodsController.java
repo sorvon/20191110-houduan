@@ -116,7 +116,7 @@ public class GoodsController {
 			if(existGoodsName.equals(goodsName)) {
 				classIDToString = Integer.toString(thisClassID);
 				goodsEntity.setClassID(thisClassID);
-
+				
 			}
 			else {
 				return existGoodsName;  //如果输入的标签名在数据库中已经存在，但商品名不一致的话，需要返回数据库已有的商品名
@@ -217,7 +217,7 @@ public class GoodsController {
 			classService.insertClass2(labelName,goodsName);		//如果goodsClass中无此标签名，就在goodsClass类中增加
 		}
 		thisClassID=classService.getClassID(labelName);            //通过goodsClass得到classID
-		String existGoodsName=classService.getGoodsNameByClassID(thisClassID);
+		String existGoodsName=classService.getGoodsNameByClassID(thisClassID); 
 		if(existGoodsName.equals(goodsName)) {
 			classIDToString = Integer.toString(thisClassID);
 			goodsTemp.setClassID(thisClassID);
@@ -235,10 +235,10 @@ public class GoodsController {
 				else {
 					currentClassString=Integer.toString(currentClassID);
 				}
-
-				String srcFilePath=absolutePath+"/src/images/"+currentClassString+"/"+currentGoodsIDString+getSrcSuffix(currentGoodsID);
-				String dstPath=absolutePath+"/src/images/"+classIDToString;
-				String goodsPath="/src/images/"+classIDToString+"/"+currentGoodsIDString+getSrcSuffix(currentGoodsID);
+				
+				String srcFilePath=absolutePath+"/myimages/"+currentClassString+"/"+currentGoodsIDString+getSrcSuffix(currentGoodsID);
+				String dstPath=absolutePath+"/myimages/"+classIDToString;
+				String goodsPath="/myimages/"+classIDToString+"/"+currentGoodsIDString+getSrcSuffix(currentGoodsID);
 				fileProcess.moveFile(srcFilePath,dstPath);
 				goodsTemp.setGoodsPath(goodsPath);
 				goodsTemp.setGoodsID(currentGoodsID);
