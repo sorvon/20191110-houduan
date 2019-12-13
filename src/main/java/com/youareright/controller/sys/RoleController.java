@@ -77,8 +77,14 @@ public class RoleController {
 			for(String menuId:menuIds){
 				RoleMenuEntity roleMenuEntity = new RoleMenuEntity();
 				roleMenuEntity.setRoleId(id);
-				roleMenuEntity.setMenuId(Integer.parseInt(menuId));
-				roleMenuEntityList.add(roleMenuEntity);
+				try {
+					roleMenuEntity.setMenuId(Integer.parseInt(menuId));
+					roleMenuEntityList.add(roleMenuEntity);
+				} catch (Exception e){
+					System.out.println(e);
+				}
+
+
 			}
 			roleMenuService.alterEntity(roleMenuEntityList);
 		}
